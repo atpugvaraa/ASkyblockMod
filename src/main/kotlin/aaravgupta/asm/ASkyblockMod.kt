@@ -1,5 +1,6 @@
 package aaravgupta.asm
 
+import aaravgupta.asm.swift.ASMCore
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
 
@@ -15,5 +16,12 @@ object ASkyblockMod : ModInitializer {
         LOGGER.info("[ASM] Common init — Kotlin entrypoint is alive.")
         // Prove Java<->Kotlin interop: call into a Java helper.
         LOGGER.info("[ASM] Java helper says: {}", ASMJavaBridge.greeting())
+
+        try {
+            val swiftText = ASMCore.sendChatMessage("hi from swift!")
+            LOGGER.info("[ASM] Swift built a Minecraft Component, got back: {}", swiftText)
+        } catch (t: Throwable) {
+            LOGGER.error("[ASM] Swift→Minecraft Component call failed", t)
+        }
     }
 }
