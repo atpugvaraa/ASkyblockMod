@@ -1,0 +1,45 @@
+{
+	"schemaVersion": 1,
+	"id": "asm",
+	"version": "${version}",
+	"name": "A Skyblock Mod",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/asm/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "aaravgupta.asm.ASkyblockMod",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "aaravgupta.asm.client.ASkyblockModClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"asm.mixins.json",
+		{
+			"config": "asm.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
